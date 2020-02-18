@@ -1,0 +1,106 @@
+package edu.elsmancs;
+
+
+public class Carrera {
+    private int tiempoEsperado;
+    private int tiempoCarrera = 0;
+    private double costeTotal = 0.0;
+    private int propina = 0;
+    private Conductor conductor;
+    private final String tarjeta;
+    private String origen;
+    private String destino;
+    private double distancia;
+    private Tarifa tarifa = new Tarifa();
+
+
+    public Carrera (String tarjeta){
+
+
+    public String getTarjetaCredito() {
+
+        return this.tarjeta;
+    }
+
+
+    public String getOrigen(){
+
+        return this.origen;
+    }
+
+    public String getDestino(){
+
+        return this.destino;
+    }
+
+    public double getDistancia(){
+
+        return this.distancia;
+    }
+
+    public int getTiempoEsperado(){
+
+        return this.tiempoEsperado;
+    }
+
+    public double getCosteEsperado(){
+
+        return tarifa.getCosteTotalEsperado(this);
+    }
+
+    public Conductor getConductor() {
+
+        return this.conductor;
+    }
+
+    public void setConductor(Conductor conductor) {
+
+        this.conductor = conductor;
+    }
+
+    public void setOrigen(String origenInput){
+
+        this.origen = origenInput;
+    }
+
+    public void setDestino(String destinoInput){
+
+        this.destino = destinoInput;
+    }
+
+    public void setDistancia(double distanciaInput){
+        this.distancia = distanciaInput;
+    }
+
+    public void setTiempoEsperado(int tiempoEsperadoInput){
+        this.tiempoEsperado = tiempoEsperadoInput;
+    }
+
+    public void asignarConductor(PoolConductores conductores) {
+        setConductor(conductores.asignarConductor());
+    }
+
+    public void realizarPago(double pago) {
+
+        this.costeTotal = pago;
+    }
+
+    public double getCosteTotal() {
+        return this.costeTotal;
+    }
+
+    public void recibirPropina(int propina) {
+
+        this.propina = propina;
+    }
+
+    public int getPropina() {
+
+        return this.propina;
+    }
+
+    public void liberarConductor() {
+
+        getConductor().setLibre(true);
+    }
+}
